@@ -1,0 +1,22 @@
+{
+	"songs": [
+		["Blocked", "spooky", [34, 51, 68]],
+		["Corn-theft", "spooky", [34, 51, 68]],
+		["Maze", "monster", [34, 51, 68]]
+	],
+
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekBackground": "bambi",
+
+	"storyName": "bambi",
+	"weekBefore": "dave",
+	"weekName": "bambi",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}

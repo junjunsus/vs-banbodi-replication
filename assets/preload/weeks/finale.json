@@ -1,0 +1,20 @@
+{
+	"songs": [
+		["splitathon", "pico", [148, 22, 83]]
+	],
+
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekBackground": "finale",
+
+	"storyName": "finale",
+	"weekBefore": "bambi",
+	"weekName": "finale",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}

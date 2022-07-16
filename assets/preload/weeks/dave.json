@@ -1,0 +1,22 @@
+{
+	"songs": [
+		["House", "dad", [146, 113, 253]],
+		["Insanity", "dad", [146, 113, 253]],
+		["Polygonized", "dad", [146, 113, 253]]
+	],
+
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekBackground": "dave",
+
+	"storyName": "dave",
+	"weekBefore": "tutorial",
+	"weekName": "dave",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}
