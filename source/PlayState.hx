@@ -3470,19 +3470,37 @@ class PlayState extends MusicBeatState
 		coolText.text = Std.string(seperatedScore);
 		// add(coolText);
 
-		FlxTween.tween(rating, {alpha: 0}, 0.2, {
-			startDelay: Conductor.crochet * 0.001
-		});
-
 		FlxTween.tween(comboSpr, {alpha: 0}, 0.2, {
 			onComplete: function(tween:FlxTween)
 			{
 				coolText.destroy();
 				comboSpr.destroy();
-
-				rating.destroy();
 			},
 			startDelay: Conductor.crochet * 0.001
+		});
+
+		var scaleX = rating.scale.x;
+		var scaleY = rating.scale.y;
+		rating.scale.scale(1.1);
+		if(rating.currentTween != null && rating.currentTween.active){
+			rating.currentTween.cancel();
+			rating.currentTween = null;
+		}
+		rating.currentTween = FlxTween.tween(rating, {"scale.x": scaleX, "scale.y": scaleY}, 0.1, {
+			onComplete: function(tween:FlxTween)
+			{
+				if(rating.alive && rating.currentTween == tween){
+					rating.currentTween = FlxTween.tween(rating, {"scale.x": 0, "scale.y": 0}, 0.2, {
+						onComplete: function(tween:FlxTween)
+						{
+							rating.kill();
+						},
+						ease: FlxEase.quadIn,
+						startDelay: 0.6
+					});
+				}
+			},
+			ease: FlxEase.quadOut
 		});
 	}
 
@@ -4091,7 +4109,7 @@ class PlayState extends MusicBeatState
 		{
 			moveCameraSection(Std.int(curStep / 16));
 		}
-		if (camZooming && FlxG.camera.zoom < 1.35 && ClientPrefs.camZooms && curBeat % 4 == 0)
+		if (camZooming && FlxG.camera.zoom < 1.35 && ClientPrefs.camZooms && curBeat % gfSpeed == 0)
 		{
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 0.03;
